@@ -1,0 +1,151 @@
+<style>
+  .h4-Search {
+   margin-top: 15px ;
+   margin-left: 50px;
+  }
+  .h4-Result {
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  .h4-Result_Information {
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .label {
+    margin-left: 150px;
+  }
+  .button {
+    margin-top: 10px;
+    margin-left: 190px;
+  }
+  button {
+    margin-left: 3px;
+  }
+  input {
+    margin-left: 2px;
+    width: 150px;
+    height: 25px;
+  }
+  .row {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  .col{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px;
+  }
+  .table {
+    margin-left: 50px;
+    width: 1550px;
+    border: 1px;
+  }
+  .container {
+    margin-left: 20px;
+    padding: 5px;
+    
+  }
+  table, th{
+  border: 1px solid black;
+  border-collapse: collapse;
+  height: 25px;
+  }
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 30px;
+  }
+  .th {
+  background-color: #00CC99;
+  text-align: center;
+ }
+ .td {
+  text-align: center;
+  vertical-align: bottom;
+  padding: 0px;
+ }
+ .td_name {
+  vertical-align: bottom;
+  padding: 0px;
+ }
+</style>
+
+<div>
+  <h4 class="h4-Search , text-primary">Search</h4>
+    <div>
+      <label class="label"for="inputMobile">Mobile</label>
+        <input mdbInput type="mobile"  id="inputMolie">
+     </div>
+     <div class="button">
+        <button type="button" class="btn btn-secondary">CLEAR</button>
+        <button type="button" class="btn btn-success">SEARCH</button>
+      </div>
+      
+    <h4 class="h4-Result , text-primary">Result</h4>
+    <table mdbTable class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let head of headElements" scope="col" class="th">{{ head }} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of elements">
+          <th scope="row" class="td">{{ el.mobile }}</th>
+          <td class="td">{{ el.product }}</td>
+          <td class="td">{{ el.status }}</td>
+          <td class="td">{{ el.status_date }}</td>
+          <td class="td_name">{{ el.customer_account }}</td>
+          <td class="td">{{ el.register_date }}</td>
+          <td class="td">{{ el.segment }}</td>
+          <td class="td">{{ el.pa_group }}</td>
+          <td class="td_name">{{ el.first_name }}</td>
+          <td class="td_name">{{ el.last_name }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class=" h4-Result_Information , text-primary">Result Information</h4>
+    <div class="container">
+      <div class="row">
+          <div class="col">
+            <span>Mobile</span>
+            <input type="text" id="item-input" value="08191234567">
+          </div>
+          <div class="col">
+            <span>Billing System</span>
+            <input type="text" id="item-input" value="INS">
+          </div>
+          <div class="col">
+            <span>Billing Cycle</span>
+            <input type="text" id="item-input" value="1-30">
+          </div>
+          <div class="col">
+            <span>Charge Type</span>
+            <input type="text" id="item-input" value="Pre-paid">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span>Service Years</span>
+            <input type="text" id="item-input" value="1 Years 3 Month">
+          </div>
+          <div class="col">
+            <span class="">SIM</span>
+            <input type="text" id="item-input" value="1234567891230">
+          </div>
+          <div class="col">
+            <span>SIM Usage</span>
+            <input type="text" id="item-input" value="MNP-AWN_3in1_DSA">
+          </div>
+          <div class="col">
+            <span>GPRS Type</span>
+            <input type="text" id="item-input" value="Time-Based">
+          </div>
+       </div>
+      </div> 
+  </div>
+<router-outlet></router-outlet>
